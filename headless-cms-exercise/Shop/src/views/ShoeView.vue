@@ -10,7 +10,8 @@
                             <div class="flex flex-row md:flex-col justify-between items-start gap-2">
                                 <div>
                                     <span class="font-medium text-surface-500 dark:text-surface-400 text-sm">{{
-                                        item.Manufacturer.Name }} <span v-if="item.Collaborator">x {{ item.Collaborator.Name }}</span></span>
+                                        item.Manufacturer.Name }} <span v-if="item.Collaborator">x {{
+                                            item.Collaborator.Name }}</span></span>
                                     <div class="text-lg font-medium mt-2">{{ item.Name }}</div>
                                 </div>
                             </div>
@@ -34,5 +35,6 @@ onMounted(async () => {
     var apiClient = new CmsApiClient();
     const result = await apiClient.GetShoes(props.brand);
     shoes.value = result.data;
+    console.log(shoes.value);
 });
 </script>
