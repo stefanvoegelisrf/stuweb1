@@ -1,0 +1,29 @@
+{
+  "kind": "collectionType",
+  "collectionName": "shoes",
+  "info": {
+    "singularName": "shoe",
+    "pluralName": "shoes",
+    "displayName": "Shoe",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "Name": {
+      "type": "string"
+    },
+    "Manufacturer": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::manufacturer.manufacturer"
+    },
+    "Collaborator": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::manufacturer.manufacturer"
+    }
+  }
+}

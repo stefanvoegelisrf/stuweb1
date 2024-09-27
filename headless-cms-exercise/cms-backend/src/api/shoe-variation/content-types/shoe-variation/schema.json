@@ -1,0 +1,35 @@
+{
+  "kind": "collectionType",
+  "collectionName": "shoe_variations",
+  "info": {
+    "singularName": "shoe-variation",
+    "pluralName": "shoe-variations",
+    "displayName": "Shoe Variation"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "ProductImages": {
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ],
+      "type": "media",
+      "multiple": true
+    },
+    "shoe": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::shoe.shoe"
+    },
+    "color": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::color.color"
+    }
+  }
+}
