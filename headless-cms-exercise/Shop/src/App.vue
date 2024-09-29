@@ -8,7 +8,7 @@ const navigationLinks = [{
 }
   ,
 {
-  to: "/shoe",
+  to: "/shoes",
   name: "Shoes",
   icon: "/icons/sneaker.svg"
 }];

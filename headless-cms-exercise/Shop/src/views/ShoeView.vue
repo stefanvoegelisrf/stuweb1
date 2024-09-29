@@ -14,6 +14,7 @@
                                             item.brandCollaborator.Name }}</span></span>
                                     <div class="text-lg font-medium mt-2">{{ item.name }}</div>
                                 </div>
+                                <ShoeVariationPreview :shoe-id="item.id"></ShoeVariationPreview>
                             </div>
                         </div>
                     </div>
@@ -26,9 +27,10 @@
 import { CmsApiClient } from '@/services/cms-api-client';
 import { ref, defineProps, onMounted } from 'vue';
 import DataView from 'primevue/dataview';
+import ShoeVariationPreview from './ShoeVariationPreview.vue';
 
 const props = defineProps<{
-    brand: string | undefined
+    brand?: string
 }>();
 const shoes = ref([]);
 onMounted(async () => {

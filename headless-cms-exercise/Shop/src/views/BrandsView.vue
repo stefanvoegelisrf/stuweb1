@@ -21,7 +21,7 @@
                             </div>
                             <div class="flex flex-col md:items-end gap-8">
                                 <div class="flex flex-row-reverse md:flex-row gap-2">
-                                    <Button label="View Shoes" class="flex-auto md:flex-initial whitespace-nowrap">
+                                    <Button label="View Shoes" as="router-link" :to="`/shoes/${item.name}`" class="flex-auto md:flex-initial whitespace-nowrap">
                                         <template #icon>
                                             <img src="/icons/sneaker.svg" alt="Sneaker icon" class="w-8 h-8 min-w-8" />
                                         </template></Button>
@@ -43,7 +43,7 @@ import Button from 'primevue/button';
 const manufacturers = ref([]);
 (async () => {
     var apiClient = new CmsApiClient();
-    var result = await apiClient.GetManufacturers();
+    var result = await apiClient.GetBrands();
     manufacturers.value = result.data;
 })();
 </script>
