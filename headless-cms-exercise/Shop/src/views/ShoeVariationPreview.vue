@@ -1,7 +1,7 @@
 <template>
     <div v-for="shoeVariation in shoeVariations" :key="shoeVariation.id">
         <h2>{{ shoeVariation.color.name }}</h2>
-        <Galleria :value="shoeVariation.productImages" container-style="max-width:10rem">
+        <Galleria :value="shoeVariation.productImages" container-style="max-width:10rem" :circular="true" :show-item-navigators="true" :show-thumbnails="false">
             <template #item="slotProps">
                 <img :src="`http://localhost:1337/${slotProps.item.url}`" :alt="slotProps.item.alternativeText" />
             </template>
