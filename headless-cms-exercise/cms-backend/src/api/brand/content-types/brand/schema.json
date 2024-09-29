@@ -1,10 +1,10 @@
 {
   "kind": "collectionType",
-  "collectionName": "manufacturers",
+  "collectionName": "brands",
   "info": {
-    "singularName": "manufacturer",
-    "pluralName": "manufacturers",
-    "displayName": "Manufacturer",
+    "singularName": "brand",
+    "pluralName": "brands",
+    "displayName": "Brand",
     "description": ""
   },
   "options": {
@@ -12,13 +12,13 @@
   },
   "pluginOptions": {},
   "attributes": {
-    "Name": {
+    "name": {
       "type": "string"
     },
-    "Founder": {
+    "founder": {
       "type": "string"
     },
-    "Logo": {
+    "logo": {
       "type": "media",
       "multiple": false,
       "required": false,
@@ -29,13 +29,13 @@
         "audios"
       ]
     },
-    "Headquarters": {
+    "headquarters": {
       "type": "string"
     },
-    "FoundingYear": {
+    "foundingYear": {
       "type": "string"
     },
-    "Description": {
+    "description": {
       "type": "text"
     }
   }

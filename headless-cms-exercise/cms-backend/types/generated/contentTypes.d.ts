@@ -485,19 +485,50 @@ export interface PluginUsersPermissionsUser
   };
 }
 
+export interface ApiBrandBrand extends Struct.CollectionTypeSchema {
+  collectionName: 'brands';
+  info: {
+    singularName: 'brand';
+    pluralName: 'brands';
+    displayName: 'Brand';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    name: Schema.Attribute.String;
+    founder: Schema.Attribute.String;
+    logo: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
+    headquarters: Schema.Attribute.String;
+    foundingYear: Schema.Attribute.String;
+    description: Schema.Attribute.Text;
+    createdAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    publishedAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String;
+    localizations: Schema.Attribute.Relation<'oneToMany', 'api::brand.brand'>;
+  };
+}
+
 export interface ApiColorColor extends Struct.CollectionTypeSchema {
   collectionName: 'colors';
   info: {
     singularName: 'color';
     pluralName: 'colors';
     displayName: 'Color';
+    description: '';
   };
   options: {
     draftAndPublish: true;
   };
   attributes: {
-    Name: Schema.Attribute.String;
-    Hex: Schema.Attribute.String;
+    name: Schema.Attribute.String;
+    hex: Schema.Attribute.String;
     createdAt: Schema.Attribute.DateTime;
     updatedAt: Schema.Attribute.DateTime;
     publishedAt: Schema.Attribute.DateTime;
@@ -507,40 +538,6 @@ export interface ApiColorColor extends Struct.CollectionTypeSchema {
       Schema.Attribute.Private;
     locale: Schema.Attribute.String;
     localizations: Schema.Attribute.Relation<'oneToMany', 'api::color.color'>;
-  };
-}
-
-export interface ApiManufacturerManufacturer
-  extends Struct.CollectionTypeSchema {
-  collectionName: 'manufacturers';
-  info: {
-    singularName: 'manufacturer';
-    pluralName: 'manufacturers';
-    displayName: 'Manufacturer';
-    description: '';
-  };
-  options: {
-    draftAndPublish: true;
-  };
-  attributes: {
-    Name: Schema.Attribute.String;
-    Founder: Schema.Attribute.String;
-    Logo: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
-    Headquarters: Schema.Attribute.String;
-    FoundingYear: Schema.Attribute.String;
-    Description: Schema.Attribute.Text;
-    createdAt: Schema.Attribute.DateTime;
-    updatedAt: Schema.Attribute.DateTime;
-    publishedAt: Schema.Attribute.DateTime;
-    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
-      Schema.Attribute.Private;
-    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
-      Schema.Attribute.Private;
-    locale: Schema.Attribute.String;
-    localizations: Schema.Attribute.Relation<
-      'oneToMany',
-      'api::manufacturer.manufacturer'
-    >;
   };
 }
 
@@ -556,14 +553,11 @@ export interface ApiShoeShoe extends Struct.CollectionTypeSchema {
     draftAndPublish: true;
   };
   attributes: {
-    Name: Schema.Attribute.String;
-    Manufacturer: Schema.Attribute.Relation<
+    name: Schema.Attribute.String;
+    brand: Schema.Attribute.Relation<'oneToOne', 'api::brand.brand'>;
+    brandCollaborator: Schema.Attribute.Relation<
       'oneToOne',
-      'api::manufacturer.manufacturer'
-    >;
-    Collaborator: Schema.Attribute.Relation<
-      'oneToOne',
-      'api::manufacturer.manufacturer'
+      'api::brand.brand'
     >;
     createdAt: Schema.Attribute.DateTime;
     updatedAt: Schema.Attribute.DateTime;
@@ -584,12 +578,13 @@ export interface ApiShoeVariationShoeVariation
     singularName: 'shoe-variation';
     pluralName: 'shoe-variations';
     displayName: 'Shoe Variation';
+    description: '';
   };
   options: {
     draftAndPublish: true;
   };
   attributes: {
-    ProductImages: Schema.Attribute.Media<
+    productImages: Schema.Attribute.Media<
       'images' | 'files' | 'videos' | 'audios',
       true
     >;
@@ -985,8 +980,8 @@ declare module '@strapi/strapi' {
       'plugin::users-permissions.permission': PluginUsersPermissionsPermission;
       'plugin::users-permissions.role': PluginUsersPermissionsRole;
       'plugin::users-permissions.user': PluginUsersPermissionsUser;
+      'api::brand.brand': ApiBrandBrand;
       'api::color.color': ApiColorColor;
-      'api::manufacturer.manufacturer': ApiManufacturerManufacturer;
       'api::shoe.shoe': ApiShoeShoe;
       'api::shoe-variation.shoe-variation': ApiShoeVariationShoeVariation;
       'admin::permission': AdminPermission;

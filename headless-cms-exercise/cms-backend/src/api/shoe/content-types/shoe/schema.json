@@ -12,18 +12,18 @@
   },
   "pluginOptions": {},
   "attributes": {
-    "Name": {
+    "name": {
       "type": "string"
     },
-    "Manufacturer": {
+    "brand": {
       "type": "relation",
       "relation": "oneToOne",
-      "target": "api::manufacturer.manufacturer"
+      "target": "api::brand.brand"
     },
-    "Collaborator": {
+    "brandCollaborator": {
       "type": "relation",
       "relation": "oneToOne",
-      "target": "api::manufacturer.manufacturer"
+      "target": "api::brand.brand"
     }
   }
 }

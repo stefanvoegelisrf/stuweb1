@@ -8,15 +8,15 @@
                         :class="{ 'border-t border-surface-200 dark:border-surface-700': index !== 0 }">
                         <div class="md:w-40 relative">
                             <img class="block xl:block mx-auto rounded w-full bg-gray-500 p-2"
-                                :src="`http://localhost:1337${item.Logo.url}`" :alt="item.Name" />
+                                :src="`http://localhost:1337${item.logo.url}`" :alt="item.name" />
                         </div>
                         <div class="flex flex-col md:flex-row justify-between md:items-center flex-1 gap-6">
                             <div class="flex flex-row md:flex-col justify-between items-start gap-2">
                                 <div>
                                     <span class="font-medium text-surface-500 dark:text-surface-400 text-sm">Based in {{
-                                        item.Headquarters }}, founded in {{ item.FoundingYear }} by {{ item.Founder }}</span>
-                                    <div class="text-lg font-medium mt-2">{{ item.Name }}</div>
-                                    <div class="mt-2">{{ item.Description }}</div>
+                                        item.headquarters }}, founded in {{ item.foundingYear }} by {{ item.founder }}</span>
+                                    <div class="text-lg font-medium mt-2">{{ item.name }}</div>
+                                    <div class="mt-2">{{ item.description }}</div>
                                 </div>
                             </div>
                             <div class="flex flex-col md:items-end gap-8">
