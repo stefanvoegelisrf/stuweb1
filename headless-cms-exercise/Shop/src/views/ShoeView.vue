@@ -11,10 +11,12 @@
                                 <div>
                                     <span class="font-medium text-surface-500 dark:text-surface-400 text-sm">{{
                                         item.brand.name }} <span v-if="item.brandCollaborator">x {{
-                                            item.brandCollaborator.Name }}</span></span>
+                                            item.brandCollaborator.name }}</span></span>
                                     <div class="text-lg font-medium mt-2">{{ item.name }}</div>
                                 </div>
-                                <ShoeVariationPreview :shoe-id="item.id"></ShoeVariationPreview>
+                                <div class="flex flex-row">
+                                    <ShoeVariationPreview :shoe-id="item.id"></ShoeVariationPreview>
+                                </div>
                             </div>
                         </div>
                     </div>

@@ -16,7 +16,7 @@ const navigationLinks = [{
 
 <template>
   <header>
-    <Dock :model="navigationLinks">
+    <Dock :model="navigationLinks" position="left">
       <template #item="{ item }">
         <RouterLink :to="item.to">
           <img v-tooltip.top="item.name" :alt="item.name" :src="item.icon" class="dock-icon bg-white p-1 rounded-md invert h-12 w-full" />
